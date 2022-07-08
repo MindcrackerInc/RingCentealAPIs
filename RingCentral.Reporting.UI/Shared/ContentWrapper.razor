@@ -1,0 +1,71 @@
+﻿  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">RingCentral Reporting Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">RingCentral Reporting Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          
+          <!-- /.col-md-6 -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="m-0">Sync Identities</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Sync Identities from Ring Central</h6>
+
+                <p class="card-text">This section is to be used to sync Identities from Ring Central repository.</p>
+                <a href="#" class="btn btn-primary">Sync Identities</a>
+              </div>
+            </div>
+
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="m-0">Show Identities</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Processed Identity Report</h6>
+
+                <p class="card-text">This section is to be used to generate Identities from local database.</p>
+                <button type="submit" class="btn btn-primary" @onclick="GenerateIdentityReport">Generate Identity Report</button>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+@inject IJSRuntime jsRuntime
+@inject HttpClient Client
+@code{
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+     protected async Task GenerateIdentityReport()
+      {
+        //await jsRuntime.InvokeAsync<string>("console.log", "hello world");
+        //var result = await Client.GetAsync("Identity/SyncAllIdentities");
+        //await jsRuntime.InvokeAsync<string>("console.log", result);
+        NavigationManager.NavigateTo("/GenerateReport");
+      }
+}
