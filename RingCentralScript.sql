@@ -1,4 +1,4 @@
-USE [RignCentral_Reporting]
+USE RingTest
 GO
 /****** Object:  Table [dbo].[Categories]    Script Date: 08-07-2022 15:24:04 ******/
 SET ANSI_NULLS ON

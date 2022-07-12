@@ -78,11 +78,12 @@ app.UseHangfireDashboard();
 
 // integrationProcess = new IntegrationProcess();
 
-RecurringJob.AddOrUpdate<ISyncAllData>("Savetodb",syncService =>  syncService.CallAsync(), "09 * * * *");
+//RecurringJob.AddOrUpdate<ISyncAllData>("Savetodb",syncService =>  syncService.CallAsync(), "09 * * * *");
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment()||app.Environment.IsProduction())
 {
     app.UseSwagger();
+    app.UseSwaggerUI(c=>c.SwaggerEndpoint("/swagger/v1/swagger.json","RingcentralAPi v1"));
     app.UseSwaggerUI();
 }
 
